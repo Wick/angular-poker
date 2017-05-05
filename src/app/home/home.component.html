@@ -1,0 +1,11 @@
+<section>
+  <h1>Poker</h1>
+  <input #name type="text" placeholder="Player">
+  <button (click)="addPlayer(name.value)">Add player</button>
+  <button (click)="reset();">Reset</button>
+  <button (click)="play();" [disabled]="players.length <= 0">Play</button>
+  <div *ngFor="let player of players" [class.winner]="player[3]">
+    <h2>{{player[0]}}</h2> Cards: <span *ngFor="let card of player[1]">- {{suits[card[0][0]]}}{{ranks[card[0][1]]}} </span> 
+    <p>Results: <span>{{results[player[2]]}}</span> <span *ngIf="player[3]">- Winner!</span></p>
+  </div>
+</section>
